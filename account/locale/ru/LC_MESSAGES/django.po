@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-user-accounts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-01 16:44+0200\n"
+"POT-Creation-Date: 2016-12-01 16:45+0200\n"
 "PO-Revision-Date: 2015-04-23 15:27+0000\n"
 "Last-Translator: Brian Rosner <brosner@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/django-user-"
@@ -134,7 +134,7 @@ msgstr "Пригласивший"
 
 #: models.py:148
 msgid "Notes"
-msgstr ""
+msgstr "Примечания"
 
 #: models.py:149 models.py:313
 msgid "Sent"
