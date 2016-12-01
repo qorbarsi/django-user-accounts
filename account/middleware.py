@@ -14,6 +14,7 @@ from django.http import HttpResponseRedirect, QueryDict
 from django.utils import translation, timezone
 from django.utils.cache import patch_vary_headers
 from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
 
 from account import signals
 from account.conf import settings
@@ -46,8 +47,10 @@ class LocaleMiddleware(BaseMiddleware):
         return translation.get_language_from_request(request)
 
     def process_request(self, request):
-        translation.activate(self.get_language_for_user(request))
+        lang = self.get_language_for_user(request)
+        translation.activate(lang)
         request.LANGUAGE_CODE = translation.get_language()
+        request.session[translation.LANGUAGE_SESSION_KEY] = lang
 
     def process_response(self, request, response):
         patch_vary_headers(response, ("Accept-Language",))
