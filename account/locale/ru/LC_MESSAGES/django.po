@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-user-accounts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-01 16:29+0200\n"
+"POT-Creation-Date: 2016-12-01 16:41+0200\n"
 "PO-Revision-Date: 2015-04-23 15:27+0000\n"
 "Last-Translator: Brian Rosner <brosner@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/django-user-"
@@ -30,7 +30,7 @@ msgstr "Учётные записи"
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: forms.py:51 forms.py:97
+#: forms.py:51 forms.py:97 models.py:407
 msgid "Password"
 msgstr "Пароль"
 
@@ -38,7 +38,8 @@ msgstr "Пароль"
 msgid "Password (again)"
 msgstr "Пароль(еще раз)"
 
-#: forms.py:59 forms.py:140 forms.py:186 forms.py:215
+#: forms.py:59 forms.py:140 forms.py:186 forms.py:215 models.py:147
+#: models.py:261 models.py:311 models.py:368
 msgid "Email"
 msgstr "Эл. почта"
 
@@ -94,11 +95,11 @@ msgstr "Пожалуйста, введите ваш действующий па�
 msgid "Email address can not be found."
 msgstr "Указанный адрес эл. почты не найден."
 
-#: forms.py:217
+#: forms.py:217 models.py:40
 msgid "Timezone"
 msgstr "Часовой пояс"
 
-#: forms.py:223
+#: forms.py:223 models.py:42
 msgid "Language"
 msgstr "Язык"
 
@@ -111,116 +112,108 @@ msgstr ""
 msgid "Account"
 msgstr "Учётная запись"
 
-#: models.py:39 models.py:406 models.py:419
-msgid "user"
+#: models.py:39 models.py:260 models.py:367 models.py:406 models.py:419
+msgid "User"
 msgstr "Пользователь"
 
-#: models.py:40
-msgid "timezone"
-msgstr "Часовой пояс"
-
-#: models.py:42
-msgid "language"
-msgstr "Язык"
-
 #: models.py:143
-msgid "code"
+msgid "Code"
 msgstr "Код приглашения"
 
 #: models.py:144
-msgid "max uses"
+msgid "Max uses"
 msgstr "Максимальное число использований"
 
 #: models.py:145 models.py:420
-msgid "expiry"
+msgid "Expiry"
 msgstr "Срок действия"
 
-#: models.py:148
-msgid "notes"
-msgstr "Примечания"
+#: models.py:146
+msgid "Inviter"
+msgstr "Приглашающий"
 
-#: models.py:149
-msgid "sent"
+#: models.py:149 models.py:313
+msgid "Sent"
 msgstr "Дата отправки"
 
-#: models.py:150
-msgid "created"
+#: models.py:150 models.py:312
+msgid "Created"
 msgstr "Дата создания"
 
 #: models.py:151
-msgid "use count"
+msgid "Use count"
 msgstr "Число использований"
 
 #: models.py:154
-msgid "signup code"
+msgid "Signup code"
 msgstr "Код приглашения"
 
 #: models.py:155
-msgid "signup codes"
+msgid "Signup codes"
 msgstr "Коды приглашений"
 
 #: models.py:262
-msgid "verified"
+msgid "Verified"
 msgstr "Проверен"
 
 #: models.py:263
-msgid "primary"
+msgid "Primary"
 msgstr "Основной"
 
 #: models.py:268
-msgid "email address"
+msgid "Email address"
 msgstr "Адрес эл. почты"
 
 #: models.py:269
-msgid "email addresses"
+msgid "Email addresses"
 msgstr "Адреса эл. почты"
 
+#: models.py:314
+msgid "Confirmation key"
+msgstr "Код подтверждения эл. почты"
+
 #: models.py:319
-msgid "email confirmation"
+msgid "Email confirmation"
 msgstr "Подтверждение эл. почты"
 
 #: models.py:320
-msgid "email confirmations"
+msgid "Email confirmations"
 msgstr "Подтверждения эл. почты"
 
 #: models.py:369
-msgid "date requested"
+msgid "Date requested"
 msgstr "Дата запроса на удаление"
 
 #: models.py:370
-msgid "date expunged"
+msgid "Date expunged"
 msgstr "Дата удаления"
 
 #: models.py:373
-msgid "account deletion"
+msgid "Account deletion"
 msgstr "Запрос на удаление учётной записи"
 
 #: models.py:374
-msgid "account deletions"
+msgid "Account deletions"
 msgstr "Запросы на удаление учётных записей"
 
 #: models.py:403
-msgid "password history"
+msgid "Password history"
 msgstr "Использованный пароль"
 
 #: models.py:404
-msgid "password histories"
+msgid "Password histories"
 msgstr "Использованные пароли"
 
-#: models.py:407
-msgid "password"
-msgstr "Пароль"
-
 #: models.py:408
-msgid "timestamp"
+msgid "Timestamp"
 msgstr "Дата"
 
 #: models.py:416
-msgid "password expiry"
+msgid "Password expiry"
 msgstr "Срок действия пароля"
 
 #: models.py:417
-msgid "password expiries"
+msgid "Password expiries"
 msgstr "Сроки действия паролей"
 
 #: views.py:50 views.py:524

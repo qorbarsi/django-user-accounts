@@ -36,10 +36,10 @@ class Account(models.Model):
         verbose_name = _("Account")
         verbose_name_plural = _("Accounts")
 
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="account", verbose_name=_("user"))
-    timezone = TimeZoneField(verbose_name=_("timezone"))
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="account", verbose_name=_("User"))
+    timezone = TimeZoneField(verbose_name=_("Timezone"))
     language = models.CharField(
-        verbose_name=_("language"),
+        verbose_name=_("Language"),
         max_length=10,
         choices=settings.ACCOUNT_LANGUAGES,
         default=settings.LANGUAGE_CODE
@@ -140,19 +140,19 @@ class SignupCode(models.Model):
     class InvalidCode(Exception):
         pass
 
-    code = models.CharField(_("code"), max_length=64, unique=True)
-    max_uses = models.PositiveIntegerField(_("max uses"), default=0)
-    expiry = models.DateTimeField(_("expiry"), null=True, blank=True)
-    inviter = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True)
-    email = models.EmailField(max_length=254, blank=True)
-    notes = models.TextField(_("notes"), blank=True)
-    sent = models.DateTimeField(_("sent"), null=True, blank=True)
-    created = models.DateTimeField(_("created"), default=timezone.now, editable=False)
-    use_count = models.PositiveIntegerField(_("use count"), editable=False, default=0)
+    code = models.CharField(verbose_name=_("Code"), max_length=64, unique=True)
+    max_uses = models.PositiveIntegerField(verbose_name=_("Max uses"), default=0)
+    expiry = models.DateTimeField(verbose_name=_("Expiry"), null=True, blank=True)
+    inviter = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, verbose_name=_('Inviter'))
+    email = models.EmailField(verbose_name=_('Email'),max_length=254, blank=True)
+    notes = models.TextField(verbose_name=("Notes"), blank=True)
+    sent = models.DateTimeField(verbose_name=_("Sent"), null=True, blank=True)
+    created = models.DateTimeField(verbose_name=_("Created"), default=timezone.now, editable=False)
+    use_count = models.PositiveIntegerField(verbose_name=_("Use count"), editable=False, default=0)
 
     class Meta:
-        verbose_name = _("signup code")
-        verbose_name_plural = _("signup codes")
+        verbose_name = _("Signup code")
+        verbose_name_plural = _("Signup codes")
 
     def __str__(self):
         if self.email:
@@ -257,16 +257,16 @@ class SignupCodeResult(models.Model):
 @python_2_unicode_compatible
 class EmailAddress(models.Model):
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    email = models.EmailField(max_length=254, unique=settings.ACCOUNT_EMAIL_UNIQUE)
-    verified = models.BooleanField(_("verified"), default=False)
-    primary = models.BooleanField(_("primary"), default=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,verbose_name=_('User'))
+    email = models.EmailField(verbose_name=_('Email'),max_length=254, unique=settings.ACCOUNT_EMAIL_UNIQUE)
+    verified = models.BooleanField(verbose_name=_("Verified"), default=False)
+    primary = models.BooleanField(verbose_name=_("Primary"), default=False)
 
     objects = EmailAddressManager()
 
     class Meta:
-        verbose_name = _("email address")
-        verbose_name_plural = _("email addresses")
+        verbose_name = _("Email address")
+        verbose_name_plural = _("Email addresses")
         if not settings.ACCOUNT_EMAIL_UNIQUE:
             unique_together = [("user", "email")]
 
@@ -308,16 +308,16 @@ class EmailAddress(models.Model):
 @python_2_unicode_compatible
 class EmailConfirmation(models.Model):
 
-    email_address = models.ForeignKey(EmailAddress)
-    created = models.DateTimeField(default=timezone.now)
-    sent = models.DateTimeField(null=True)
-    key = models.CharField(max_length=64, unique=True)
+    email_address = models.ForeignKey(EmailAddress,verbose_name=_('Email'))
+    created = models.DateTimeField(verbose_name=_('Created'),default=timezone.now)
+    sent = models.DateTimeField(verbose_name=_('Sent'),null=True)
+    key = models.CharField(verbose_name=_('Confirmation key'),max_length=64, unique=True)
 
     objects = EmailConfirmationManager()
 
     class Meta:
-        verbose_name = _("email confirmation")
-        verbose_name_plural = _("email confirmations")
+        verbose_name = _("Email confirmation")
+        verbose_name_plural = _("Email confirmations")
 
     def __str__(self):
         return "confirmation for {0}".format(self.email_address)
@@ -364,14 +364,14 @@ class EmailConfirmation(models.Model):
 
 class AccountDeletion(models.Model):
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL)
-    email = models.EmailField(max_length=254)
-    date_requested = models.DateTimeField(_("date requested"), default=timezone.now)
-    date_expunged = models.DateTimeField(_("date expunged"), null=True, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, verbose_name=_('User'))
+    email = models.EmailField(max_length=254, verbose_name=_('Email'))
+    date_requested = models.DateTimeField(verbose_name=_("Date requested"), default=timezone.now)
+    date_expunged = models.DateTimeField(verbose_name=_("Date expunged"), null=True, blank=True)
 
     class Meta:
-        verbose_name = _("account deletion")
-        verbose_name_plural = _("account deletions")
+        verbose_name = _("Account deletion")
+        verbose_name_plural = _("Account deletions")
 
     @classmethod
     def expunge(cls, hours_ago=None):
@@ -400,12 +400,12 @@ class PasswordHistory(models.Model):
     Contains single password history for user.
     """
     class Meta:
-        verbose_name = _("password history")
-        verbose_name_plural = _("password histories")
+        verbose_name = _("Password history")
+        verbose_name_plural = _("Password histories")
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="password_history", verbose_name=_("user"))
-    password = models.CharField(max_length=255, verbose_name=_("password"))  # encrypted password
-    timestamp = models.DateTimeField(default=timezone.now, verbose_name=_("timestamp"))  # password creation time
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="password_history", verbose_name=_("User"))
+    password = models.CharField(max_length=255, verbose_name=_("Password"))  # encrypted password
+    timestamp = models.DateTimeField(default=timezone.now, verbose_name=_("Timestamp"))  # password creation time
 
 
 class PasswordExpiry(models.Model):
@@ -413,8 +413,8 @@ class PasswordExpiry(models.Model):
     Holds the password expiration period for a single user.
     """
     class Meta:
-        verbose_name = _("password expiry")
-        verbose_name_plural = _("password expiries")
+        verbose_name = _("Password expiry")
+        verbose_name_plural = _("Password expiries")
 
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="password_expiry", verbose_name=_("user"))
-    expiry = models.PositiveIntegerField(default=0, verbose_name=_("expiry"))
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="password_expiry", verbose_name=_("User"))
+    expiry = models.PositiveIntegerField(default=0, verbose_name=_("Expiry"))
