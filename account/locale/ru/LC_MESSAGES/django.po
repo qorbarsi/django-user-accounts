@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-user-accounts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-01 14:20+0200\n"
+"POT-Creation-Date: 2016-12-01 16:01+0200\n"
 "PO-Revision-Date: 2015-04-23 15:27+0000\n"
 "Last-Translator: Brian Rosner <brosner@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/django-user-"
@@ -40,8 +40,7 @@ msgstr "Эл. почта"
 
 #: forms.py:70
 msgid "Usernames can only contain letters, numbers and underscores."
-msgstr ""
-"Имя пользователя может состоять только из букв, цифр и подчёркиваний."
+msgstr "Имя пользователя может состоять только из букв, цифр и подчёркиваний."
 
 #: forms.py:78
 msgid "This username is already taken. Please choose another."
@@ -101,7 +100,8 @@ msgstr "Язык"
 
 #: middleware.py:92
 msgid "Your password has expired. Please save a new password."
-msgstr "Срок действия вашего пароля истёк. Пожалуйста, установите новый пароль."
+msgstr ""
+"Срок действия вашего пароля истёк. Пожалуйста, установите новый пароль."
 
 #: models.py:36 models.py:412
 msgid "user"
@@ -227,4 +227,6 @@ msgstr "Настройки аккаунта изменены."
 msgid ""
 "Your account is now inactive and your data will be expunged in the next "
 "{expunge_hours} hours."
-msgstr "Ваша учётная запись заблокирована и будет удалена в течение {expunge_hours} часов."
+msgstr ""
+"Ваша учётная запись заблокирована и будет удалена в течение {expunge_hours} "
+"часов."
