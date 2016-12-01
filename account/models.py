@@ -145,7 +145,7 @@ class SignupCode(models.Model):
     expiry = models.DateTimeField(verbose_name=_("Expiry"), null=True, blank=True)
     inviter = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, verbose_name=_('Inviter'))
     email = models.EmailField(verbose_name=_('Email'),max_length=254, blank=True)
-    notes = models.TextField(verbose_name=("Notes"), blank=True)
+    notes = models.TextField(verbose_name=_('Notes'), blank=True)
     sent = models.DateTimeField(verbose_name=_("Sent"), null=True, blank=True)
     created = models.DateTimeField(verbose_name=_("Created"), default=timezone.now, editable=False)
     use_count = models.PositiveIntegerField(verbose_name=_("Use count"), editable=False, default=0)
