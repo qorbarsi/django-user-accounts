@@ -1,3 +1,3 @@
 __version__ = "2.0.0"
 
-default_app_config = "accounts.apps.AppConfig"
+default_app_config = "account.apps.AppConfig"
