@@ -1,154 +1,230 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
+# Qorbarsi <qorbarsi@gmail.com>, 2016
 # Brian Rosner <brosner@gmail.com>, 2015
 # Eugene MechanisM <contact@mechanism.name>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: django-user-accounts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-30 15:12-0600\n"
+"POT-Creation-Date: 2016-12-01 14:20+0200\n"
 "PO-Revision-Date: 2015-04-23 15:27+0000\n"
 "Last-Translator: Brian Rosner <brosner@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/django-user-accounts/language/ru/)\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/django-user-"
+"accounts/language/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: forms.py:27 forms.py:107
+#: forms.py:45 forms.py:125
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: forms.py:33 forms.py:79
+#: forms.py:51 forms.py:97
 msgid "Password"
 msgstr "Пароль"
 
-#: forms.py:37
+#: forms.py:55
 msgid "Password (again)"
 msgstr "Пароль(еще раз)"
 
-#: forms.py:41 forms.py:122 forms.py:168 forms.py:197
+#: forms.py:59 forms.py:140 forms.py:186 forms.py:215
 msgid "Email"
-msgstr "Email"
+msgstr "Эл. почта"
 
-#: forms.py:52
+#: forms.py:70
 msgid "Usernames can only contain letters, numbers and underscores."
-msgstr "Имена пользователей могут состоять только из букв, цифер и подчеркиваний."
+msgstr ""
+"Имя пользователя может состоять только из букв, цифр и подчёркиваний."
 
-#: forms.py:60
+#: forms.py:78
 msgid "This username is already taken. Please choose another."
 msgstr "Это имя пользователя уже занято. Пожалуйста, выберите другое."
 
-#: forms.py:67 forms.py:217
+#: forms.py:85 forms.py:235
 msgid "A user is registered with this email address."
-msgstr "Пользователь зарегистрирован с этим email адресом."
+msgstr "Пользователь с этим адресом эл. почты уже зарегистрирован."
 
-#: forms.py:72 forms.py:162 forms.py:191
+#: forms.py:90 forms.py:180 forms.py:209
 msgid "You must type the same password each time."
-msgstr "Вы должны писать одинаковый пароль каждый раз."
+msgstr "Введённые пароли не совпадают."
 
-#: forms.py:83
+#: forms.py:101
 msgid "Remember Me"
-msgstr "Запомнить Меня"
+msgstr "Запомнить меня"
 
-#: forms.py:96
+#: forms.py:114
 msgid "This account is inactive."
-msgstr "Этот аккаунт неактивен."
+msgstr "Этот аккаунт заблокирован."
 
-#: forms.py:108
+#: forms.py:126
 msgid "The username and/or password you specified are not correct."
-msgstr "Имя пользователя и/или пароль введено некорректно."
+msgstr "Имя пользователя и/или пароль введены некорректно."
 
-#: forms.py:123
+#: forms.py:141
 msgid "The email address and/or password you specified are not correct."
-msgstr "Email-адрес и/или пароль введен некорректно."
+msgstr "Адрес эл. почты и/или пароль введены некорректно."
 
-#: forms.py:138
+#: forms.py:156
 msgid "Current Password"
 msgstr "Действующий пароль"
 
-#: forms.py:142 forms.py:180
+#: forms.py:160 forms.py:198
 msgid "New Password"
-msgstr "Новый Пароль"
+msgstr "Новый пароль"
 
-#: forms.py:146 forms.py:184
+#: forms.py:164 forms.py:202
 msgid "New Password (again)"
-msgstr "Новый Пароль(еще раз)"
+msgstr "Новый пароль (ещё раз)"
 
-#: forms.py:156
+#: forms.py:174
 msgid "Please type your current password."
 msgstr "Пожалуйста, введите ваш действующий пароль."
 
-#: forms.py:173
+#: forms.py:191
 msgid "Email address can not be found."
-msgstr ""
+msgstr "Указанный адрес эл. почты не найден."
 
-#: forms.py:199
+#: forms.py:217
 msgid "Timezone"
 msgstr "Часовой пояс"
 
-#: forms.py:205
+#: forms.py:223
 msgid "Language"
 msgstr "Язык"
 
-#: models.py:34
+#: middleware.py:92
+msgid "Your password has expired. Please save a new password."
+msgstr "Срок действия вашего пароля истёк. Пожалуйста, установите новый пароль."
+
+#: models.py:36 models.py:412
 msgid "user"
 msgstr "пользователь"
 
-#: models.py:35
+#: models.py:37
 msgid "timezone"
 msgstr "часовой пояс"
 
-#: models.py:37
+#: models.py:39
 msgid "language"
 msgstr "язык"
 
-#: models.py:250
+#: models.py:140
+msgid "code"
+msgstr "Код приглашения"
+
+#: models.py:141
+msgid "max uses"
+msgstr "Максимальное число использований"
+
+#: models.py:142
+msgid "expiry"
+msgstr "Срок действия"
+
+#: models.py:145
+msgid "notes"
+msgstr "Примечания"
+
+#: models.py:146
+msgid "sent"
+msgstr "Дата отправки"
+
+#: models.py:147
+msgid "created"
+msgstr "Дата создания"
+
+#: models.py:148
+msgid "use count"
+msgstr "Число использований"
+
+#: models.py:151
+msgid "signup code"
+msgstr "Код приглашения"
+
+#: models.py:152
+msgid "signup codes"
+msgstr "Коды приглашений"
+
+#: models.py:259
+msgid "verified"
+msgstr "Проверен"
+
+#: models.py:260
+msgid "primary"
+msgstr "Основной"
+
+#: models.py:265
 msgid "email address"
-msgstr "email-адрес"
+msgstr "Адрес эл. почты"
 
-#: models.py:251
+#: models.py:266
 msgid "email addresses"
-msgstr "email-адреса"
+msgstr "Адреса эл. почты"
 
-#: models.py:300
+#: models.py:316
 msgid "email confirmation"
-msgstr "подтверждение email"
+msgstr "Подтверждение эл. почты"
 
-#: models.py:301
+#: models.py:317
 msgid "email confirmations"
-msgstr "подтверждения email"
+msgstr "Подтверждения эл. почты"
 
-#: views.py:42
-#, python-brace-format
-msgid "Confirmation email sent to {email}."
-msgstr ""
+#: models.py:366
+msgid "date requested"
+msgstr "Дата запроса на удаление"
 
-#: views.py:46
-#, python-brace-format
-msgid "The code {code} is invalid."
-msgstr ""
+#: models.py:367
+msgid "date expunged"
+msgstr "Дата удаления"
 
-#: views.py:379
-#, python-brace-format
-msgid "You have confirmed {email}."
-msgstr ""
+#: models.py:370
+msgid "account deletion"
+msgstr "Запрос на удаление учётной записи"
 
-#: views.py:452 views.py:585
+#: models.py:371
+msgid "account deletions"
+msgstr "Запросы на удаление учётных записей"
+
+#: models.py:400
+msgid "password history"
+msgstr "Использованный пароль"
+
+#: models.py:401
+msgid "password histories"
+msgstr "Использованные пароли"
+
+#: views.py:50 views.py:524
 msgid "Password successfully changed."
 msgstr "Пароль успешно изменен"
 
-#: views.py:664
+#: views.py:125
+#, python-brace-format
+msgid "Confirmation email sent to {email}."
+msgstr "Письмо с инструкциями по подтверждению выслано на {email}."
+
+#: views.py:129
+#, python-brace-format
+msgid "The code {code} is invalid."
+msgstr "Неверный код приглашения {code}."
+
+#: views.py:442
+#, python-brace-format
+msgid "You have confirmed {email}."
+msgstr "Адрес эл. почты {email} подтверждён."
+
+#: views.py:672
 msgid "Account settings updated."
 msgstr "Настройки аккаунта изменены."
 
-#: views.py:748
+#: views.py:756
 #, python-brace-format
 msgid ""
 "Your account is now inactive and your data will be expunged in the next "
 "{expunge_hours} hours."
-msgstr ""
+msgstr "Ваша учётная запись заблокирована и будет удалена в течение {expunge_hours} часов."
