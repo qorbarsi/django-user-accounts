@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-user-accounts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-01 16:20+0200\n"
+"POT-Creation-Date: 2016-12-01 16:26+0200\n"
 "PO-Revision-Date: 2015-04-23 15:27+0000\n"
 "Last-Translator: Brian Rosner <brosner@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/django-user-"
@@ -21,6 +21,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: apps.py:7 models.py:37
+msgid "Accounts"
+msgstr "Учётные записи"
 
 #: forms.py:45 forms.py:125
 msgid "Username"
@@ -106,10 +110,6 @@ msgstr ""
 #: models.py:36
 msgid "Account"
 msgstr "Учётная запись"
-
-#: models.py:37
-msgid "Accounts"
-msgstr "Учётные записи"
 
 #: models.py:39 models.py:406 models.py:419
 msgid "user"
