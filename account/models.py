@@ -32,11 +32,14 @@ from account.signals import signup_code_sent, signup_code_used
 
 @python_2_unicode_compatible
 class Account(models.Model):
+    class Meta:
+        verbose_name = _("Account")
+        verbose_name_plural = _("Accounts")
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="account", verbose_name=_("user"))
-    timezone = TimeZoneField(_("timezone"))
+    timezone = TimeZoneField(verbose_name=_("timezone"))
     language = models.CharField(
-        _("language"),
+        verbose_name=_("language"),
         max_length=10,
         choices=settings.ACCOUNT_LANGUAGES,
         default=settings.LANGUAGE_CODE
@@ -400,14 +403,18 @@ class PasswordHistory(models.Model):
         verbose_name = _("password history")
         verbose_name_plural = _("password histories")
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="password_history")
-    password = models.CharField(max_length=255)  # encrypted password
-    timestamp = models.DateTimeField(default=timezone.now)  # password creation time
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="password_history", verbose_name=_("user"))
+    password = models.CharField(max_length=255, verbose_name=_("password"))  # encrypted password
+    timestamp = models.DateTimeField(default=timezone.now, verbose_name=_("timestamp"))  # password creation time
 
 
 class PasswordExpiry(models.Model):
     """
     Holds the password expiration period for a single user.
     """
+    class Meta:
+        verbose_name = _("password expiry")
+        verbose_name_plural = _("password expiries")
+
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="password_expiry", verbose_name=_("user"))
-    expiry = models.PositiveIntegerField(default=0)
+    expiry = models.PositiveIntegerField(default=0, verbose_name=_("expiry"))
