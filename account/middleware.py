@@ -38,9 +38,7 @@ class LocaleMiddleware(BaseMiddleware):
     """
 
     def get_language_for_user(self, request):
-        if not hasattr(request, 'user'):
-            return settings.LANGUAGE_CODE
-        if request.user.is_authenticated():
+        if hasattr(request, 'user') and request.user.is_authenticated():
             try:
                 account = Account.objects.get(user=request.user)
                 return account.language
@@ -49,10 +47,9 @@ class LocaleMiddleware(BaseMiddleware):
         return translation.get_language_from_request(request)
 
     def process_request(self, request):
-        lang = self.get_language_for_user(request)
-        translation.activate(lang)
+        translation.activate(self.get_language_for_user(request))
         request.LANGUAGE_CODE = translation.get_language()
-        request.session[translation.LANGUAGE_SESSION_KEY] = lang
+        request.session[translation.LANGUAGE_SESSION_KEY] = translation.get_language()
 
     def process_response(self, request, response):
         patch_vary_headers(response, ("Accept-Language",))
