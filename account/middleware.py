@@ -38,6 +38,8 @@ class LocaleMiddleware(BaseMiddleware):
     """
 
     def get_language_for_user(self, request):
+        if not hasattr(request, user):
+            return settings.LANGUAGE_CODE
         if request.user.is_authenticated():
             try:
                 account = Account.objects.get(user=request.user)
