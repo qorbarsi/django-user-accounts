@@ -12,13 +12,12 @@ from django.utils.encoding import force_text
 from django.utils.translation import ugettext_lazy as _
 
 from django.contrib import auth
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, password_validation
 
 from account.conf import settings
 from account.hooks import hookset
 from account.models import EmailAddress
 from account.utils import get_user_lookup_kwargs
-
 
 alnum_re = re.compile(r"^\w+$")
 
@@ -88,6 +87,8 @@ class SignupForm(forms.Form):
         if "password" in self.cleaned_data and "password_confirm" in self.cleaned_data:
             if self.cleaned_data["password"] != self.cleaned_data["password_confirm"]:
                 raise forms.ValidationError(_("You must type the same password each time."))
+            self.instance.username = self.cleaned_data.get('username','')
+            password_validation.validate_password(self.cleaned_data['password_confirm'], self.instance)
         return self.cleaned_data
 
 
@@ -178,6 +179,7 @@ class ChangePasswordForm(forms.Form):
         if "password_new" in self.cleaned_data and "password_new_confirm" in self.cleaned_data:
             if self.cleaned_data["password_new"] != self.cleaned_data["password_new_confirm"]:
                 raise forms.ValidationError(_("You must type the same password each time."))
+            password_validation.validate_password(self.cleaned_data['password_confirm'], self.user)
         return self.cleaned_data["password_new_confirm"]
 
 
@@ -207,6 +209,7 @@ class PasswordResetTokenForm(forms.Form):
         if "password" in self.cleaned_data and "password_confirm" in self.cleaned_data:
             if self.cleaned_data["password"] != self.cleaned_data["password_confirm"]:
                 raise forms.ValidationError(_("You must type the same password each time."))
+            password_validation.validate_password(self.cleaned_data['password_confirm'], self.user)    
         return self.cleaned_data["password_confirm"]
 
 
