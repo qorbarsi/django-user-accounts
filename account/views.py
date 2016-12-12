@@ -636,16 +636,6 @@ class PasswordResetTokenView(PasswordMixin, FormView):
         })
         return ctx
 
-    def login_user(self, user):
-        user.backend = "django.contrib.auth.backends.ModelBackend"
-        auth.login(self.request, user)
-        self.request.session.set_expiry(0)
-
-    #def change_password(self, form):
-    #    user = super(PasswordResetTokenView, self).change_password(form)
-        #self.login_user(user)
-    #    return user
-
     def form_valid(self, form):
         user = self.change_password(form)
         self.create_password_history(form, user)
