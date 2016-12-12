@@ -649,6 +649,13 @@ class PasswordResetTokenView(PasswordMixin, FormView):
             raise Http404()
         return get_object_or_404(get_user_model(), id=uid_int)
 
+    def get_form_kwargs(self):
+        kwargs = super(PasswordResetTokenView, self).get_form_kwargs()
+        kwargs.update({
+            'user': self.get_user()
+        })
+        return kwargs
+
     def check_token(self, user, token):
         return self.token_generator.check_token(user, token)
 

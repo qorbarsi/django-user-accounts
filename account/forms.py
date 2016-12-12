@@ -205,6 +205,10 @@ class PasswordResetTokenForm(forms.Form):
         widget=forms.PasswordInput(render_value=False)
     )
 
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop("user")
+        super(PasswordResetTokenForm, self).__init__(*args, **kwargs)
+
     def clean_password_confirm(self):
         if "password" in self.cleaned_data and "password_confirm" in self.cleaned_data:
             if self.cleaned_data["password"] != self.cleaned_data["password_confirm"]:
