@@ -641,14 +641,14 @@ class PasswordResetTokenView(PasswordMixin, FormView):
         auth.login(self.request, user)
         self.request.session.set_expiry(0)
 
-    def change_password(self, form):
-        user = super(PasswordResetTokenView, self).change_password(form)
-        self.login_user(user)
-        return user
+    #def change_password(self, form):
+    #    user = super(PasswordResetTokenView, self).change_password(form)
+        #self.login_user(user)
+    #    return user
 
     def form_valid(self, form):
-        self.change_password(form)
-        self.create_password_history(form, self.request.user)
+        user = self.change_password(form)
+        self.create_password_history(form, user)
         self.after_change_password()
         return redirect(self.get_success_url())
 
