@@ -49,6 +49,7 @@ class SignupForm(forms.Form):
     password = PasswordField(
         label=_("Password"),
         strip=settings.ACCOUNT_PASSWORD_STRIP,
+        help_text=password_validation.password_validators_help_text_html(),
     )
     password_confirm = PasswordField(
         label=_("Password (again)"),
@@ -159,7 +160,8 @@ class ChangePasswordForm(forms.Form):
     )
     password_new = forms.CharField(
         label=_("New Password"),
-        widget=forms.PasswordInput(render_value=False)
+        widget=forms.PasswordInput(render_value=False),
+        help_text=password_validation.password_validators_help_text_html(),
     )
     password_new_confirm = forms.CharField(
         label=_("New Password (again)"),
@@ -198,7 +200,8 @@ class PasswordResetTokenForm(forms.Form):
 
     password = forms.CharField(
         label=_("New Password"),
-        widget=forms.PasswordInput(render_value=False)
+        widget=forms.PasswordInput(render_value=False),
+        help_text=password_validation.password_validators_help_text_html(),
     )
     password_confirm = forms.CharField(
         label=_("New Password (again)"),
