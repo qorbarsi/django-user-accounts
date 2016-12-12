@@ -98,7 +98,7 @@ class PasswordMixin(object):
         hookset.send_password_change_email([user.email], ctx)
 
     def create_password_history(self, form, user):
-        if settings.ACCOUNT_PASSWORD_USE_HISTORY:
+        if settings.ACCOUNT_PASSWORD_USE_HISTORY and isinstance(user, get_user_model()):
             password = form.cleaned_data[self.form_password_field]
             PasswordHistory.objects.create(
                 user=user,
@@ -635,6 +635,16 @@ class PasswordResetTokenView(PasswordMixin, FormView):
             "token": self.kwargs["token"],
         })
         return ctx
+
+    def login_user(self, user):
+        user.backend = "django.contrib.auth.backends.ModelBackend"
+        auth.login(self.request, user)
+        self.request.session.set_expiry(0)
+
+    def change_password(self, form):
+        user = super(PasswordResetTokenView, self).change_password(form)
+        self.login_user(user)
+        return user
 
     def form_valid(self, form):
         self.change_password(form)
