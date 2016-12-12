@@ -179,7 +179,7 @@ class ChangePasswordForm(forms.Form):
         if "password_new" in self.cleaned_data and "password_new_confirm" in self.cleaned_data:
             if self.cleaned_data["password_new"] != self.cleaned_data["password_new_confirm"]:
                 raise forms.ValidationError(_("You must type the same password each time."))
-            password_validation.validate_password(self.cleaned_data['password_confirm'], self.user)
+            password_validation.validate_password(self.cleaned_data['password_new_confirm'], self.user)
         return self.cleaned_data["password_new_confirm"]
 
 
@@ -209,7 +209,7 @@ class PasswordResetTokenForm(forms.Form):
         if "password" in self.cleaned_data and "password_confirm" in self.cleaned_data:
             if self.cleaned_data["password"] != self.cleaned_data["password_confirm"]:
                 raise forms.ValidationError(_("You must type the same password each time."))
-            password_validation.validate_password(self.cleaned_data['password_confirm'], self.user)    
+            password_validation.validate_password(self.cleaned_data['password_confirm'], self.user)
         return self.cleaned_data["password_confirm"]
 
 
