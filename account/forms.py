@@ -88,8 +88,10 @@ class SignupForm(forms.Form):
         if "password" in self.cleaned_data and "password_confirm" in self.cleaned_data:
             if self.cleaned_data["password"] != self.cleaned_data["password_confirm"]:
                 raise forms.ValidationError(_("You must type the same password each time."))
-            self.instance.username = self.cleaned_data.get('username','')
-            password_validation.validate_password(self.cleaned_data['password_confirm'], self.instance)
+            User = get_user_model()
+            user = User()
+            user.username = self.cleaned_data.get('username','')
+            password_validation.validate_password(self.cleaned_data['password_confirm'], user)
         return self.cleaned_data
 
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-user-accounts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-01 16:45+0200\n"
+"POT-Creation-Date: 2016-12-13 10:55+0200\n"
 "PO-Revision-Date: 2015-04-23 15:27+0000\n"
 "Last-Translator: Brian Rosner <brosner@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/django-user-"
@@ -26,11 +26,11 @@ msgstr ""
 msgid "Accounts"
 msgstr "Учётные записи"
 
-#: forms.py:45 forms.py:125
+#: forms.py:44 forms.py:129
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: forms.py:51 forms.py:97 models.py:407
+#: forms.py:50 forms.py:101 models.py:407
 msgid "Password"
 msgstr "Пароль"
 
@@ -38,7 +38,7 @@ msgstr "Пароль"
 msgid "Password (again)"
 msgstr "Пароль(еще раз)"
 
-#: forms.py:59 forms.py:140 forms.py:186 forms.py:215 models.py:147
+#: forms.py:59 forms.py:144 forms.py:192 forms.py:227 models.py:147
 #: models.py:261 models.py:311 models.py:368
 msgid "Email"
 msgstr "Эл. почта"
@@ -51,59 +51,59 @@ msgstr "Имя пользователя может состоять только
 msgid "This username is already taken. Please choose another."
 msgstr "Это имя пользователя уже занято. Пожалуйста, выберите другое."
 
-#: forms.py:85 forms.py:235
+#: forms.py:85 forms.py:247
 msgid "A user is registered with this email address."
 msgstr "Пользователь с этим адресом эл. почты уже зарегистрирован."
 
-#: forms.py:90 forms.py:180 forms.py:209
+#: forms.py:90 forms.py:185 forms.py:220
 msgid "You must type the same password each time."
 msgstr "Введённые пароли не совпадают."
 
-#: forms.py:101
+#: forms.py:105
 msgid "Remember Me"
 msgstr "Запомнить меня"
 
-#: forms.py:114
+#: forms.py:118
 msgid "This account is inactive."
 msgstr "Этот аккаунт заблокирован."
 
-#: forms.py:126
+#: forms.py:130
 msgid "The username and/or password you specified are not correct."
 msgstr "Имя пользователя и/или пароль введены некорректно."
 
-#: forms.py:141
+#: forms.py:145
 msgid "The email address and/or password you specified are not correct."
 msgstr "Адрес эл. почты и/или пароль введены некорректно."
 
-#: forms.py:156
+#: forms.py:160
 msgid "Current Password"
 msgstr "Действующий пароль"
 
-#: forms.py:160 forms.py:198
+#: forms.py:164 forms.py:204
 msgid "New Password"
 msgstr "Новый пароль"
 
-#: forms.py:164 forms.py:202
+#: forms.py:169 forms.py:209
 msgid "New Password (again)"
 msgstr "Новый пароль (ещё раз)"
 
-#: forms.py:174
+#: forms.py:179
 msgid "Please type your current password."
 msgstr "Пожалуйста, введите ваш действующий пароль."
 
-#: forms.py:191
+#: forms.py:197
 msgid "Email address can not be found."
 msgstr "Указанный адрес эл. почты не найден."
 
-#: forms.py:217 models.py:40
+#: forms.py:229 models.py:40
 msgid "Timezone"
 msgstr "Часовой пояс"
 
-#: forms.py:223 models.py:42
+#: forms.py:235 models.py:42
 msgid "Language"
 msgstr "Язык"
 
-#: middleware.py:92
+#: middleware.py:94
 msgid "Your password has expired. Please save a new password."
 msgstr ""
 "Срок действия вашего пароля истёк. Пожалуйста, установите новый пароль."
@@ -239,11 +239,11 @@ msgstr "Неверный код приглашения {code}."
 msgid "You have confirmed {email}."
 msgstr "Адрес эл. почты {email} подтверждён."
 
-#: views.py:672
+#: views.py:679
 msgid "Account settings updated."
 msgstr "Настройки аккаунта изменены."
 
-#: views.py:756
+#: views.py:763
 #, python-brace-format
 msgid ""
 "Your account is now inactive and your data will be expunged in the next "
